@@ -1,6 +1,12 @@
+@propertyWrapper
 public struct Lowercased {
-    public private(set) var text = "Hello, World!"
+    public var wrappedValue: String {
+        didSet {
+            wrappedValue = wrappedValue.lowercased()
+        }
+    }
 
-    public init() {
+    public init(wrappedValue: String) {
+        self.wrappedValue = wrappedValue.lowercased()
     }
 }
